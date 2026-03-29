@@ -53,6 +53,37 @@
         .tracking-logo {
             letter-spacing: -0.08em;
         }
+
+        /* Hip gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Neon glow effect */
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Enhanced button hover */
+        .btn-hip {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .btn-hip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
     </style>
 </head>
 <body class="antialiased bg-[#0a0a0a] text-white font-sans overflow-x-hidden selection:bg-white selection:text-black">
@@ -68,10 +99,12 @@
             />
             <!-- Gradient overlay to ensure text readability while keeping the image visible -->
             <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50 animate-fade-in delay-100"></div>
+            <!-- Hip gradient accent overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20 animate-fade-in delay-200"></div>
         </div>
 
         <!-- Header / Navigation -->
-        <header class="relative z-10 w-full px-6 md:px-12 pt-8 flex items-center justify-between animate-fade-in delay-100">
+        <header class="relative z-10 w-full px-6 md:px-12 pt-8 flex items-center justify-between animate-fade-in delay-100 glass rounded-2xl mx-6 md:mx-12 mt-6">
             <!-- Left: Hamburger Menu -->
             <button class="p-2 -ml-2 hover:opacity-70 transition-opacity duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded relative z-20" aria-label="Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,16 +114,16 @@
 
             <!-- Center: Navigation Links (Absolutely centered for perfect alignment) -->
             <nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-8 lg:space-x-10 text-[15px] tracking-wide">
-                <a href="#" class="text-white/50 hover:text-white transition-colors duration-200">Home</a>
-                <a href="#" class="text-white hover:text-white/70 transition-colors duration-200">Works</a>
-                <a href="#" class="text-white hover:text-white/70 transition-colors duration-200">About</a>
-                <a href="#" class="text-white hover:text-white/70 transition-colors duration-200">Journal</a>
-                <a href="#" class="text-white hover:text-white/70 transition-colors duration-200">Company</a>
-                <a href="#" class="text-white hover:text-white/70 transition-colors duration-200">Designers</a>
+                <a href="#" class="text-white/50 hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 hover:bg-clip-text transition-all duration-300 hover:scale-105">Home</a>
+                <a href="#" class="text-white hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 hover:bg-clip-text transition-all duration-300 hover:scale-105">Works</a>
+                <a href="#" class="text-white hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 hover:bg-clip-text transition-all duration-300 hover:scale-105">About</a>
+                <a href="#" class="text-white hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 hover:bg-clip-text transition-all duration-300 hover:scale-105">Journal</a>
+                <a href="#" class="text-white hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 hover:bg-clip-text transition-all duration-300 hover:scale-105">Company</a>
+                <a href="#" class="text-white hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 hover:bg-clip-text transition-all duration-300 hover:scale-105">Designers</a>
             </nav>
 
             <!-- Right: Contact -->
-            <a href="#" class="text-[15px] tracking-wide hover:opacity-70 transition-opacity duration-200 relative z-20">Contact</a>
+            <a href="#" class="text-[15px] tracking-wide hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-blue-400 hover:bg-clip-text transition-all duration-300 hover:scale-105 relative z-20">Contact</a>
         </header>
 
         <!-- Middle Content: Slider Info & Line -->
@@ -103,7 +136,7 @@
             <!-- Connecting Line -->
             <div class="h-[1px] bg-white/40 flex-grow mx-6 md:mx-10"></div>
             
-            <a href="#" class="text-base md:text-lg font-medium tracking-widest whitespace-nowrap hover:opacity-70 transition-opacity duration-200 group flex items-center">
+            <a href="#" class="text-base md:text-lg font-medium tracking-widest whitespace-nowrap btn-hip px-6 py-3 rounded-full text-white group flex items-center">
                 See Work Detail
             </a>
         </div>
@@ -111,10 +144,10 @@
         <!-- Bottom Content: Logo & Scroll Arrow -->
         <div class="relative z-10 w-full px-6 md:px-12 pb-6 md:pb-10 flex items-end justify-between animate-fade-in-up delay-300">
             <!-- Massive Logo -->
-            <h1 class="text-[5rem] sm:text-[8rem] md:text-[11rem] lg:text-[14rem] leading-[0.75] font-black tracking-logo lowercase select-none -ml-1 md:-ml-2">Automated Munich Fix and Flip Real Estate</h1>
+            <h1 class="text-[5rem] sm:text-[8rem] md:text-[11rem] lg:text-[14rem] leading-[0.75] font-black tracking-logo lowercase select-none -ml-1 md:-ml-2 gradient-text">Automated Munich Fix and Flip Real Estate</h1>
             
             <!-- Scroll Down Arrow -->
-            <button class="mb-2 md:mb-6 p-2 hover:opacity-70 hover:translate-y-2 transition-all duration-300 focus:outline-none" aria-label="Scroll down">
+            <button class="mb-2 md:mb-6 p-2 hover:opacity-70 hover:translate-y-2 transition-all duration-300 focus:outline-none neon-glow rounded-full" aria-label="Scroll down">
                 <svg width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-9 md:w-8 md:h-12">
                     <path d="M12 0V34M12 34L5 27M12 34L19 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
                 </svg>
